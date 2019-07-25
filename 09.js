@@ -2,14 +2,14 @@ const fs = require("fs");
 const Crawler = require("./html2json/index");
 
 // Parse HTML from a file
-const file = new Crawler("./spec/test.html", "li");
+const file = new Crawler("./html2json/spec/test.html", "li");
 file
   .fetch()
   .then(() => file.parse())
   .then(() => file.output());
 
 // Parse HTML from a stream
-const stream = new Crawler(fs.createReadStream("./spec/test.html"), "li");
+const stream = new Crawler( fs.createReadStream("./html2json/spec/test.html"), "li");
 stream
   .fetch()
   .then(() => stream.parse())
