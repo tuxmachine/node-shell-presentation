@@ -3,7 +3,7 @@ const fs = require("fs");
 
 describe("html2json", () => {
   it("should parse from file", () => {
-    const crawler = new Crawler("spec/test.html", "li");
+    const crawler = new Crawler("test.html", "li");
     return crawler.fetch().then(() => {
       crawler.parse();
       expect(crawler.results).toEqual(["Apple", "Orange", "Pear"]);
@@ -21,7 +21,7 @@ describe("html2json", () => {
 
   it("should parse from stream", () => {
     const crawler = new Crawler(
-      fs.createReadStream(__dirname + "/test.html"),
+      fs.createReadStream(__dirname + "/../test.html"),
       "li"
     );
     return crawler.fetch().then(() => {

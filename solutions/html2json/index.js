@@ -6,23 +6,6 @@ const fs = require("fs");
 
 class Crawler {
   /**
-   * Construct a crawler from the CLI arguments
-   *
-   * @param {String[]} args List of arguments given on the CLI
-   * @returns {Crawler} Returns new instance of crawler
-   */
-  static fromArgv(args) {
-    let source = process.stdin;
-    let selector = null;
-    if (args.length > 1) {
-      [selector, source] = args;
-    } else {
-      [selector] = args;
-    }
-    return new Crawler(source, selector);
-  }
-
-  /**
    * Creates an instance of Crawler.
    *
    * @param {String|ReadableStream} source The HTML source, can be a filename, URL or a stream to read from
@@ -75,20 +58,3 @@ class Crawler {
 }
 
 module.exports = Crawler;
-
-if (require.main === module) {
-  if (process.argv.length <= 2 || process.argv.some(s => /-h|--help/.test(s))) {
-    console.log("USAGE");
-    console.log(
-      "    From url:    html2json #selector http://example.org/file.html"
-    );
-    console.log("    From file:   html2json #selector file.html");
-    console.log("    From stdin:  cat test.html | html2json #selector");
-    process.exit(1);
-  }
-  const crawler = Crawler.fromArgv(process.argv.slice(2));
-  crawler.fetch().then(() => {
-    crawler.parse();
-    crawler.output();
-  });
-}
