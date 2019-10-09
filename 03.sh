@@ -2,7 +2,7 @@
 
 filename="some file.txt"
 if [ ! -f $filename ]; then
-  >&2 echo File not found
+  cowsay File not found
   exit 1
 fi
 

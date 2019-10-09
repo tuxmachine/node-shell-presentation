@@ -2,7 +2,8 @@
 
 const fs = require("fs");
 
-fs.readFile("./jokes.txt", "utf8", (err, data) => console.log(data));
+// fs.readFile("./lorem.txt", "utf8", (err, data) => console.log(data));
+fs.createReadStream("./jokes.txt").pipe(process.stdout);
 
 process.on("beforeExit", () => {
   const mem = process.memoryUsage();

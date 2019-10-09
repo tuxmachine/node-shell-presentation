@@ -1,4 +1,5 @@
 #!/bin/bash
 
-non-existing-command $UNKNOWN_VARIABLE
+echo Variable: $UNKNOWN_VARIABLE
+non-existing-command
 echo "Will this print?"

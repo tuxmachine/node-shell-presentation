@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require("fs");
 const Crawler = require("./html2json/index");
 

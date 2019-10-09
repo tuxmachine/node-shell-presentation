@@ -18,5 +18,8 @@
   "scripts": {
     "test": "jasmine",
     "release": "npm publish --access public"
+  },
+  "bin": {
+    "html2json": "./index.js"
   }
 }
