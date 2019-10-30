@@ -3,8 +3,9 @@
 const argv = require('yargs').argv;
 
 class Greeter {
-  constructor() {
+  constructor(name) {
     this.greeting = 'Hello';
+    this.name = name;
   }
 
   sayHello() {

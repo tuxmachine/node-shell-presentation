@@ -1,18 +1,19 @@
 #!/usr/bin/env node
-const fs = require("fs");
-const git = require("simple-git")(__dirname);
-const package = require("./package.json");
-const { promisify } = require("util");
 const args = require("yargs")
   .boolean("minor")
   .boolean("major")
   .boolean("patch").argv;
 
-const gitAddTag = promisify(git.addTag.bind(git));
-const gitCommit = promisify(git.commit.bind(git));
-const gitPush = promisify(git.push.bind(git));
+const fs = require("fs");
+const git = require("simple-git")(__dirname);
+const util = require("util");
+
+const gitAddTag = util.promisify(git.addTag.bind(git));
+const gitCommit = util.promisify(git.commit.bind(git));
+const gitPush = util.promisify(git.push.bind(git));
 
 console.log("=> Bumping version");
+const package = require("./package.json");
 const version = package.version.split(".").map(i => parseFloat(i));
 
 if (args.patch) version[2]++;
