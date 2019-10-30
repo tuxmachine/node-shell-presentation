@@ -16,4 +16,11 @@ class Greeter {
 }
 
 const greeter = new Greeter();
+process.argv.slice(2).forEach(arg => {
+  if (arg === '--pirate')
+    greeter.becomePirate();
+  else if (!arg.startsWith('-')) {
+    greeter.name = arg;
+  }
+});
 greeter.sayHello();

@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
+const argv = require('yargs').argv;
+
 class Greeter {
   constructor() {
     this.greeting = 'Hello';
-    this.name = 'world';
   }
 
   sayHello() {

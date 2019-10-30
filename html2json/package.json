@@ -5,12 +5,14 @@
     "name": "Rick Dutour Geerling"
   },
   "description": "Small CLI utility to extract data from HTML",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "got": "^9.6.0"
+    "got": "^9.6.0",
+    "simple-git": "^1.126.0",
+    "yargs": "^14.2.0"
   },
   "devDependencies": {
     "jasmine": "^3.4.0"
