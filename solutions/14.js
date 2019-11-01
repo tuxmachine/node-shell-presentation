@@ -7,14 +7,14 @@ const args = require("yargs")
 const fs = require("fs");
 const git = require("simple-git/promise")(__dirname);
 
-
 gitRelease(bumpVersion());
 
 
-function gitRelease() {
+async function gitRelease(version) {
   console.log("=> Create release commit");
-
+  await git.commit(`Release version ${version}`, ['package.json']);
   console.log("=> Tagging commit");
+  await git.addTag(`release/${version}`);
 }
 
 function bumpVersion() {
@@ -28,5 +28,4 @@ function bumpVersion() {
 
   package.version = version.map(i => `${i}`).join(".");
   fs.writeFileSync("package.json", JSON.stringify(package, null, 2));
-  return package.version;
 }

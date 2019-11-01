@@ -11,10 +11,5 @@
     "shelljs": "^0.8.3",
     "simple-git": "^1.126.0",
     "yargs": "^14.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "./13.js"
-    }
   }
 }
