@@ -11,9 +11,8 @@ const git = require("simple-git/promise")(__dirname);
 gitRelease(bumpVersion());
 
 
-function gitRelease(version) {
+async function gitRelease(version) {
   console.log("=> Create release commit");
-
   console.log("=> Tagging commit");
 }
 
