@@ -28,4 +28,5 @@ function bumpVersion() {
 
   package.version = version.map(i => `${i}`).join(".");
   fs.writeFileSync("package.json", JSON.stringify(package, null, 2));
+  return package.version;
 }
